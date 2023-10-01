@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 
 function App() {
-  const [bookCout, setBookCout] = useState(null);
+  const [bookCount, setBookCount] = useState(null);
 
   useEffect(() => {
     fetch("https://us-central1-pirelly360.cloudfunctions.net/book-demo/counter")
-      .then((res) => {
-        return res.josn();
+      .then((res) => res.json()) // Fix the typo here
+      .then((data) => {
+        setBookCount(data);
+        console.log(data, "is data gotten from the API");
       })
-      .then((data) => setBookCout(data))
       .catch((err) => console.log(err));
-
-    console.log(bookCout, "is a data get from api");
   }, []);
+  console.log(bookCount, "book count");
   return (
     <div>
       <h1>shervan</h1>
