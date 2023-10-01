@@ -4,7 +4,7 @@ function App() {
   const [bookCout, setBookCout] = useState(null);
 
   useEffect(() => {
-    fetch("https://us-central1-pirelly360.cloudfunctions.net/book-demo/count")
+    fetch("https://us-central1-pirelly360.cloudfunctions.net/book-demo/counter")
       .then((res) => {
         return res.josn();
       })
